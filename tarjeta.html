@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/tarjeta.css">
+    <title>Tarjeta</title>
+</head>
+
+<body class="">
+    <div class="box box_tarjeta  p-2">
+        <div class="row">
+            <div class="col-12 col-xs-12 col-sm-12 mb-3">
+
+                <div class="titulo">
+                    <h1>Invitacion Vip</h1>
+                </div>
+
+                <div class="texto">
+                    <p>Por medio de la presente, se invita cordialmente al costillar nigth at house. Que se realizara en
+                        el estadio talitas Resort o a convenir <span class="spa">Horario Nocturno</span> el dia
+                        01/10/22022</p>
+                </div>
+
+                <div class="text_trans">
+
+                    <p>
+                        <span class="word wisteria">Costillar.</span>
+                        <span class="word pomegranate">Alcohol.</span>
+                        <span class="word belize">Snack.</span>
+                        <span class="word green">Karaoke.</span>
+                        <span class="word midnight">y Mas!!.</span>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- FORMULARIO -->
+            <div class="box_2">
+                <h4 class="text_box2">Envia tu respuesta</h4>
+                <!-- <form action="enviar.mail" method="">
+
+                    <div class="mb-3 badge">
+                        <label for="formGroupExampleInput" class="form-label">Nombre o apodo</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="select1" name="Si">
+                        <label class="form-check-label badge" for="flexCheckDefault">
+                            Si voy de 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="select2" name="No">
+                        <label class="form-check-label badge mb-3" for="flexCheckChecked">
+                            No, no me la banco
+                        </label>
+                    </div>
+
+                    <div class="">
+                        <input class="btn btn-succes" type="submit" id="button" value="Enviar mensaje" >
+                    </div>
+
+                </form> -->
+                <form id="form" class="text-primary">
+                    <div class="field">
+                      <label for="from_name">Nombre</label>
+                      <input type="text" name="name" id="from_name" required>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="SI" name="respuesta" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                        Si voy de 1
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="NO" name="respuesta" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          No, no voy, no me la banco
+                        </label>
+                      </div>
+                   
+                    <input class="btn btn-primary" type="submit" id="button" value="Enviar" >
+                  </form>
+                
+                <script type="text/javascript"
+                    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+                <script type="text/javascript">
+                    emailjs.init('d0WpP8berzMOkABGK')
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>const btn = document.getElementById('button');
+
+        document.getElementById('form')
+         .addEventListener('submit', function(event) {
+           event.preventDefault();
+        
+           btn.value = 'Enviando...';
+        
+           const serviceID = 'default_service';
+           const templateID = 'template_pz2g1ia';
+        
+           emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+              btn.value = 'Enviar mensaje';
+              alert('Enviado correctamente');
+            }, (err) => {
+              btn.value = 'Enviar mensaje';
+              alert(JSON.stringify(err));
+            });
+        });</script>
+</body>
+
+</html>
